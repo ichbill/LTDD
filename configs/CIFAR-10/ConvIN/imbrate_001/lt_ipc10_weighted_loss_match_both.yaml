@@ -1,0 +1,63 @@
+dataset: CIFAR10_LT
+device: [3,5,6,7]
+
+ipc: 10
+syn_steps: 80
+syn_steps_second: 80
+expert_epochs: 2
+zca: True
+lr_teacher: 0.01
+buffer_path: ../buffer_storage/
+data_path: ../dataset
+ema_decay: 0.995
+Iteration: 10000
+batch_syn: 500
+
+# wandb
+project: CIFAR10_LT
+
+num_eval: 1
+eval_it: 500
+skip_first_eva: False
+Momentum_y: 0.9
+threshold: 10.
+pix_init: samples_predicted_correctly
+expansion_end_epoch: 2000
+batch_train: 128
+Sequential_Generation: False
+
+lr_img: 100
+lr_lr: 0.00001
+lr_y: 2.
+# second_lr_img: 100
+# second_lr_lr: 0.00001
+# second_lr_y: 2.
+
+min_start_epoch: 0
+current_max_start_epoch: 10
+max_start_epoch: 20
+second_min_start_epoch: 0
+second_current_max_start_epoch: 1
+second_max_start_epoch: 1
+
+# long tail
+imbalance_rate: 0.01
+noise: False
+duplicate: True
+hard_label: False
+align_with_long_tail: False
+
+# match stage
+first_stage_expert_dir: ../buffer_storage/CIFAR10_LT/imbalance_rate_001/first_stage_GSAM_weight_balancing_mom_0_l2_5e-3
+second_stage_expert_dir: ../buffer_storage/CIFAR10_LT/imbalance_rate_001/second_stage_GSAM_weight_balancing_mom_0_l2_5e-3
+
+# first stage
+first_stage_expert: False
+weighted_loss: True
+BFLoss: False
+first_weight_factor: 0.
+first_stage_lambda: 0.5
+match_classifier: False
+# second stage
+second_stage_weighted_loss: False
+second_stage_lambda: 1.

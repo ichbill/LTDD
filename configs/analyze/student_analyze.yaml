@@ -1,0 +1,25 @@
+dataset: CIFAR10_LT
+zca: True
+method: distill
+
+data_dir: ./logged_files/CIFAR10_LT/50/ConvNet/2in1_two_experts_match_first_init_second/Normal/images_10000.pt
+label_dir: ./logged_files/CIFAR10_LT/50/ConvNet/2in1_two_experts_match_first_init_second/Normal/labels_10000.pt
+lr_dir: ./logged_files/CIFAR10_LT/50/ConvNet/2in1_two_experts_match_first_init_second/Normal/lr_10000.pt
+
+second_distill: False
+
+second_data_dir: None
+second_label_dir: None
+second_lr_dir: None
+
+first_stage_expert: False
+second_stage_expert: True
+second_stage_maxnorm: False
+maxnorm_thresh: 0.1
+
+# first stage epoch
+epoch_eval_train: 100
+imbalance_rate: 0.005
+
+align_with_long_tail: False
+skip_second_stage: True

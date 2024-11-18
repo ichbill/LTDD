@@ -1,0 +1,51 @@
+dataset: CIFAR10_LT
+device: [6]
+
+ipc: 50
+syn_steps: 80
+expert_epochs: 2
+zca: False
+lr_img: 1000
+lr_teacher: 0.01
+buffer_path: ../buffer_storage/
+data_path: ../dataset
+ema_decay: 0.995
+Iteration: 10000
+batch_syn: 500
+
+# wandb
+project: CIFAR10_LT
+
+num_eval: 1
+eval_it: 500
+skip_first_eva: False
+
+lr_y: 2.
+Momentum_y: 0.9
+threshold: 1.
+pix_init: samples_predicted_correctly
+expansion_end_epoch: 2000
+batch_train: 128
+min_start_epoch: 0
+current_max_start_epoch: 20
+max_start_epoch: 40
+lr_lr: 0.00001
+zca: True
+
+# long tail
+imbalance_rate: 0.005
+noise: True
+duplicate: False
+hard_label: False
+
+# match stage
+first_stage_expert_dir: ../buffer_storage/CIFAR10_LT/first_stage_GSAM/
+second_stage_expert_dir: ../buffer_storage/CIFAR10_LT/second_stage_GSAM_fs_GSAM/
+
+match_first_stage: True
+first_stage_expert: False
+match_classifier: True
+
+match_second_stage: False
+
+load_all: True

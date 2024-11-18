@@ -1,0 +1,58 @@
+dataset: CIFAR100_LT
+device: [0,1,2,3,4,7]
+
+ipc: 10
+syn_steps: 40
+syn_steps_second: 20
+expert_epochs: 2
+zca: True
+lr_teacher: 0.01
+buffer_path: ../buffer_storage/
+data_path: ../dataset
+ema_decay: 0.9995
+Iteration: 10000
+batch_syn: 1000
+
+# wandb
+project: CIFAR100_LT
+
+num_eval: 1
+eval_it: 500
+skip_first_eva: False
+Momentum_y: 0.9
+threshold: 10.
+pix_init: real
+
+batch_train: 128
+Sequential_Generation: False
+
+lr_img: 1000
+lr_lr: 0.00001
+lr_y: 10.0
+
+min_start_epoch: 20
+max_start_epoch: 70 
+second_min_start_epoch: 0
+second_max_start_epoch: 1
+
+# long tail
+imbalance_rate: 0.05
+noise: False
+duplicate: True
+hard_label: False
+align_with_long_tail: False
+
+# match stage
+first_stage_expert_dir: ../buffer_storage/CIFAR100_LT/imbalance_rate_005/first_stage_weight_balancing_GSAM_mom_0_l2_5e-3
+second_stage_expert_dir: ../buffer_storage/CIFAR100_LT/imbalance_rate_005/second_stage_weight_balancing_GSAM_mom_0_l2_5e-3
+
+# first stage
+first_stage_expert: False
+weighted_loss: True
+BFLoss: False
+first_weight_factor: 0.
+first_stage_lambda: 1.
+match_classifier: False
+# second stage
+second_stage_weighted_loss: False
+second_stage_lambda: 0.1
