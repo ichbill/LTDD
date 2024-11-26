@@ -1,6 +1,6 @@
 # Distilling Long-tailed Datasets
 
-## [Paper](https://arxiv.org/abs/2310.05773) 
+## [Paper](https://arxiv.org/abs/2408.14506) 
 Existing DD methods exhibit degraded performance when applied to imbalanced datasets, especially when the imbalance factor increases, whereas our method provides significantly better performance under different imbalanced scenarios.
 
 ![image](figures/comparison.png)
