@@ -25,7 +25,7 @@ python buffer_FTD.py --cfg ../configs/buffer/CIFAR10_LT/imbrate_0005/second_stag
 3. Perform the distillation
 ```
 cd distill
-python EDGE_tesla.py --cfg ../configs/xxxx.yaml
+python DAM-ED_tesla.py --cfg ../configs/xxxx.yaml
 ```
 
 ## Acknowledgement
