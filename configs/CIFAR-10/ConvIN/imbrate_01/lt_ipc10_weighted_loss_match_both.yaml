@@ -2,7 +2,7 @@ dataset: CIFAR10_LT
 device: [6,7]
 
 ipc: 10
-syn_steps: 1
+syn_steps: 80
 syn_steps_second: 80
 expert_epochs: 2
 zca: True
@@ -14,28 +14,28 @@ Iteration: 10000
 batch_syn: 500
 
 # wandb
-project: CIFAR10_LT
+project: LTDD
 
 num_eval: 1
 eval_it: 500
 skip_first_eva: False
 Momentum_y: 0.9
-threshold: 10.
+threshold: 2.
 pix_init: samples_predicted_correctly
-expansion_end_epoch: 2000
+expansion_end_epoch: 1000
 batch_train: 128
-Sequential_Generation: False
+Sequential_Generation: True
 
-lr_img: 1
-lr_lr: 0.00000001
-lr_y: 000.2
-second_lr_img: 100
-second_lr_lr: 0.00001
-second_lr_y: 2.
+lr_img: 100
+lr_lr: 0.00001
+lr_y: 2
+# second_lr_img: 100
+# second_lr_lr: 0.00001
+# second_lr_y: 2.
 
 min_start_epoch: 0
-current_max_start_epoch: 20
-max_start_epoch: 40
+current_max_start_epoch: 10
+max_start_epoch: 20
 second_min_start_epoch: 0
 second_current_max_start_epoch: 0
 second_max_start_epoch: 1
@@ -56,8 +56,8 @@ first_stage_expert: False
 weighted_loss: True
 BFLoss: False
 first_weight_factor: 0.
-# first_stage_lambda: 0.
+first_stage_lambda: 1.
 match_classifier: False
 # second stage
 second_stage_weighted_loss: False
-# second_stage_lambda: 1.
+second_stage_lambda: 0.2
